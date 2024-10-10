@@ -16,6 +16,32 @@ class PostController extends Controller
         dd('end');
     }
 
+    public function create(): void
+    {
+        $postsArr = [
+            [
+                'title' => 'Title 16',
+                'content' => 'Content 16',
+                'image' => 'https://masterpiecer-images.s3.yandex.net/c352b1b9801c11ee9607720ccb3e265f:upscaled',
+                'likes' => 9,
+                'is_published' => true,
+            ],
+            [
+                'title' => 'Title 15',
+                'content' => 'Content 15',
+                'image' => 'https://masterpiecer-images.s3.yandex.net/c352b1b9801c11ee9607720ccb3e265f:upscaled',
+                'likes' => 5,
+                'is_published' => true,
+            ],
+        ];
+
+        foreach ($postsArr as $post) {
+            Post::create($post);
+        }
+
+        dd('created');
+    }
+
     private function imageAll(): void
     {
         $posts = Post::all();

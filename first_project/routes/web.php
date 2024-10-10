@@ -29,6 +29,8 @@ Route::redirect('/', '/my_page');
 Route::get('/my_page', [MyPageController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/hobbies', [HobbyController::class, 'index']);
 
