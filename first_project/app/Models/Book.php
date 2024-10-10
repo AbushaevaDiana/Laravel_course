@@ -12,4 +12,5 @@ class Book extends Model
     use SoftDeletes;
 
     protected $table = 'books';
+    protected $guarded = false;
 }

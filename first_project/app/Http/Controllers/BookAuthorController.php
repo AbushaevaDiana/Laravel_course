@@ -14,4 +14,16 @@ class BookAuthorController extends Controller
         dump($bookAuthor->author_id);
         dd($bookAuthor->book_id);
     }
+
+    public function create()
+    {
+        $value = [
+            'author_id' => 1,
+            'book_id' => 1,
+        ];
+
+        $bookAuthor = BookAuthor::firstOrCreate($value, $value);
+        dump($bookAuthor->book_id);
+        dd($bookAuthor->author_id);
+    }
 }

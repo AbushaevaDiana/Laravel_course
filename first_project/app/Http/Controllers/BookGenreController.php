@@ -14,4 +14,16 @@ class BookGenreController extends Controller
         dump($bookGenre->genre_id);
         dd($bookGenre->book_id);
     }
+
+    public function create()
+    {
+        $value = [
+            'genre_id' => 1,
+            'book_id' => 1,
+        ];
+
+        $bookGenre = BookGenre::firstOrCreate($value, $value);
+        dump($bookGenre->genre_id);
+        dd($bookGenre->book_id);
+    }
 }

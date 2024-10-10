@@ -12,4 +12,5 @@ class Series extends Model
     use SoftDeletes;
 
     protected $table = 'series';
+    protected $guarded = false;
 }

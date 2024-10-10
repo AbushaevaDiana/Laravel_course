@@ -12,4 +12,5 @@ class Hobby extends Model
     use SoftDeletes;
 
     protected $table = 'hobbies';
+    protected $guarded = false;
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(): void
+    public function index()
     {
         $this->imageAll();
         $this->imageContentOfAllUnpublished();
@@ -16,7 +16,7 @@ class PostController extends Controller
         dd('end');
     }
 
-    public function create(): void
+    public function create()
     {
         $postsArr = [
             [
@@ -42,19 +42,19 @@ class PostController extends Controller
         dd('created');
     }
 
-    public function update(): void
+    public function update()
     {
         $post = Post::find(6);
 
         $post->update([
-            'likes' => $post['likes'] + 3,
-            'is_published' => true,
+                          'likes' => $post['likes'] + 3,
+                          'is_published' => true,
                       ]);
 
         dd('updated');
     }
 
-    public function delete(): void
+    public function delete()
     {
         $post = Post::withTrashed()->find(2);
         $post->restore();
@@ -64,13 +64,45 @@ class PostController extends Controller
         dd('deleted');
     }
 
-    private function imageAll(): void
+    public function firstOrCreate()
+    {
+        $anotherPost = [
+            'title' => 'Title 1',
+            'content' => 'Content 2',
+            'image' => 'image1',
+            'likes' => 5000,
+            'is_published' => true,
+        ];
+
+        $post = Post::firstOrCreate(['title' => 'Title 1'], $anotherPost);
+
+        dump($post->content);
+        dd('end');
+    }
+
+    public function updateOrCreate()
+    {
+        $anotherPost = [
+            'title' => 'Title 4',
+            'content' => 'Content 2 update or create new one',
+            'image' => 'image1',
+            'likes' => 5000,
+            'is_published' => true,
+        ];
+
+        $post = Post::updateOrCreate(['title' => 'Title 3'], $anotherPost);
+
+        dump($post->content);
+        dd('end');
+    }
+
+    private function imageAll()
     {
         $posts = Post::all();
         dump($posts);
     }
 
-    private function imageContentOfAllUnpublished(): void
+    private function imageContentOfAllUnpublished()
     {
         $posts = Post::where('is_published', false)->get();
         foreach ($posts as $post) {
@@ -78,7 +110,7 @@ class PostController extends Controller
         }
     }
 
-    private function imageLikesOfAllPublishedWithoutImage(): void
+    private function imageLikesOfAllPublishedWithoutImage()
     {
         $posts = Post::where('image', null)->where('is_published', true)->get();
         foreach ($posts as $post) {
@@ -86,7 +118,7 @@ class PostController extends Controller
         }
     }
 
-    private function imageTitleOfFirstWithoutImage(): void
+    private function imageTitleOfFirstWithoutImage()
     {
         $post = Post::where('image', null)->first();
         dump($post->title);

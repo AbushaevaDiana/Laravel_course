@@ -10,5 +10,7 @@ class Author extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
     protected $table = 'authors';
+    protected $guarded = false;
 }

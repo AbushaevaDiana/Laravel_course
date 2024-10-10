@@ -12,4 +12,5 @@ class BookGenre extends Model
     use SoftDeletes;
 
     protected $table = 'book_genres';
+    protected $guarded = false;
 }
