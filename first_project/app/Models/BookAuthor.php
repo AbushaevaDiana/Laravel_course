@@ -12,4 +12,5 @@ class BookAuthor extends Model
     use SoftDeletes;
 
     protected $table = 'book_authors';
+    protected $guarded = false;
 }

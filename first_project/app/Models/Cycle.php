@@ -12,4 +12,5 @@ class Cycle extends Model
     use SoftDeletes;
 
     protected $table = 'cycles';
+    protected $guarded = false;
 }
