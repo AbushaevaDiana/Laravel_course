@@ -22,6 +22,8 @@ return new class extends Migration
             $table->boolean('is_published')->default(true);
             $table->foreignId('hobbies_id')->constrained('hobbies')->nullable();
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

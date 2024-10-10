@@ -30,6 +30,8 @@ return new class extends Migration
             $table->foreignId('cycles_id')->constrained('cycles')->nullable();
             $table->foreignId('series_id')->constrained('series')->nullable();
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
