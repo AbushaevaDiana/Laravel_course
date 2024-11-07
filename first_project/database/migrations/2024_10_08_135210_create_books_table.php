@@ -27,9 +27,11 @@ return new class extends Migration
             $table->boolean('is_bought_audiobook')->default(false);
             $table->boolean('is_bought_printed_book')->default(false);
             $table->boolean('is_bought_ebook')->default(false);
-            $table->foreignId('cycles_id')->constrained('cycles')->nullable();
-            $table->foreignId('series_id')->constrained('series')->nullable();
+            $table->foreignId('cycles_id')->nullable()->constrained('cycles');
+            $table->foreignId('series_id')->nullable()->constrained('series');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
