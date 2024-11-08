@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained('authors');
             $table->foreignId('book_id')->constrained('books');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

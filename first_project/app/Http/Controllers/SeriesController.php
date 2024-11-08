@@ -14,4 +14,25 @@ class SeriesController extends Controller
         dump($series->name);
         dd($series->description);
     }
+
+    public function create()
+    {
+        $value = [
+            'name' => 'INSPIRIA',
+        ];
+
+        $hobby = Series::firstOrCreate(['name' => 'INSPIRIA'], $value);
+        dd($hobby->description);
+    }
+
+    public function update()
+    {
+        $value = [
+            'name' => 'INSPIRIA',
+            'description' => 'Inspira audio',
+        ];
+
+        $hobby = Series::updateOrCreate(['name' => 'INSPIRIA'], $value);
+        dd($hobby->description);
+    }
 }

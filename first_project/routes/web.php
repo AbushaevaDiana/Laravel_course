@@ -29,13 +29,47 @@ Route::redirect('/', '/my_page');
 Route::get('/my_page', [MyPageController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/update', [PostController::class, 'update']);
+Route::get('/posts/delete', [PostController::class, 'delete']);
+Route::get('/posts/first_or_create', [PostController::class, 'firstOrCreate']);
+Route::get('/posts/update_or_create', [PostController::class, 'updateOrCreate']);
+
 Route::get('/hobbies', [HobbyController::class, 'index']);
+Route::get('/hobbies/create', [HobbyController::class, 'create']);
+Route::get('/hobbies/update', [HobbyController::class, 'update']);
+
+Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects/create', [ProjectController::class, 'create']);
+Route::get('/projects/update', [ProjectController::class, 'update']);
 
 Route::get('/authors', [AuthorController::class, 'index']);
+Route::get('/authors/first_or_create', [AuthorController::class, 'firstOrCreate']);
+Route::get('/authors/update_or_create', [AuthorController::class, 'updateOrCreate']);
+
 Route::get('/genres', [GenreController::class, 'index']);
+Route::get('/genres/create', [GenreController::class, 'create']);
+Route::get('/genres/update', [GenreController::class, 'update']);
+
 Route::get('/cycles', [CycleController::class, 'index']);
+Route::get('/cycles/create', [CycleController::class, 'create']);
+Route::get('/cycles/update', [CycleController::class, 'update']);
+
 Route::get('/series', [SeriesController::class, 'index']);
+Route::get('/series/create', [SeriesController::class, 'create']);
+Route::get('/series/update', [SeriesController::class, 'update']);
+
 Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/create', [BookController::class, 'create']);
+Route::get('/books/update_mark', [BookController::class, 'updateMark']);
+Route::get('/books/add_cycle', [BookController::class, 'addCycle']);
+Route::get('/books/add_series', [BookController::class, 'addSeries']);
+Route::get('/books/add_book_author', [BookController::class, 'addBookAuthor']);
+Route::get('/books/add_book_genre', [BookController::class, 'addBookGenre']);
+
+
 Route::get('/book_author', [BookAuthorController::class, 'index']);
+Route::get('/book_author/create', [BookAuthorController::class, 'create']);
+
 Route::get('/book_genre', [BookGenreController::class, 'index']);
+Route::get('/book_genre/create', [BookGenreController::class, 'create']);
